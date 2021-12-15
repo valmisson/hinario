@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+    "baseUrl": ".",
+		"moduleResolution": "node",
+		"module": "esnext",
+    "target": "esnext",
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": false,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+		"allowJs": true,
+		"checkJs": true,
+    "strict": true,
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+		"paths": {}
+	},
+	"include": [],
+  "exclude": [
+    "node_modules"
+  ]
+}
