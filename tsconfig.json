@@ -19,9 +19,17 @@
       "esnext",
       "DOM"
     ],
-		"paths": {}
+		"paths": {
+      "$lib/*": ["src/lib/*"],
+      "$components": ["src/lib/components"]
+    }
 	},
-	"include": [],
+	"include": [
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.svelte"
+  ],
   "exclude": [
     "node_modules"
   ]
