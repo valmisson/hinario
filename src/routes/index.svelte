@@ -1,3 +1,11 @@
-<h1>Hinário - Uma coleção de canções Cristã</h1>
+<main>
+  <h1>Hinário - Uma coleção de canções Cristã</h1>
+</main>
 
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat, quis? Ab unde non molestias explicabo temporibus alias quisquam beatae quos, quia voluptate sed quam nulla inventore numquam corrupti repellat laboriosam.</p>
+<style scoped>
+  main {
+    @apply
+      container lg:w-screen-lg
+      px-4 md:px-0 mt-12 md:mt-16 mx-auto;
+  }
+</style>
