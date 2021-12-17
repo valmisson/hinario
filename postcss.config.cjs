@@ -5,7 +5,7 @@ module.exports = {
   plugins: [
     autoprefixer({
       cascade: false,
-      grid: true
+      grid: false
     }),
     cssnano({
       preset: 'advanced'
