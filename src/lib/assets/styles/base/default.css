@@ -18,3 +18,7 @@ body {
   padding: 0;
   text-rendering: optimizeLegibility;
 }
+
+.dark body {
+  background-color: #191919;
+}
