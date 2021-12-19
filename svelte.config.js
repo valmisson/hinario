@@ -26,6 +26,7 @@ const config = {
         resolve: {
           alias: {
             $lib: resolve(__dirname, 'src/lib'),
+            $plugins: resolve(__dirname, 'src/lib/plugins'),
             $components: resolve(__dirname, 'src/lib/components')
           }
         }
