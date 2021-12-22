@@ -22,7 +22,7 @@
 
   .header__options {
     @apply
-      md:absolute right-0
+      md:absolute md:right-4 lg:right-0
       flex gap-6;
   }
 </style>

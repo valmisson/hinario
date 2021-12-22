@@ -11,6 +11,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint --ignore-path .gitignore **/*.{js,ts,svelte}"
   },
+  "dependencies": {
+    "smooth-scrollbar": "^8.7.0"
+  },
   "devDependencies": {
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",

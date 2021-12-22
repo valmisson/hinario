@@ -1,0 +1,15 @@
+.scrollbar-track-x {
+  background-color: #eeeeee !important;
+}
+
+.scrollbar-thumb-x {
+  background-color: #999999 !important;
+}
+
+.dark .scrollbar-track-x {
+  background-color: #3b3b3b !important;
+}
+
+.dark .scrollbar-thumb-x {
+  background-color: #a3a3a3 !important;
+}
