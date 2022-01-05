@@ -1,15 +1,24 @@
 <script lang="ts">
+  import type { Hymns } from '$types/hymns'
+
   import { smoothScroll } from '$plugins'
+
+  export let hymns: Hymns = []
 </script>
 
 <div use:smoothScroll={{ horizontalScroll: true }}>
   <ul class="hymns">
-    <li class="hymns__item">
-      <a href="/" class="hymns__link">
-        <b class="hymns__number">1.</b>
-        <span class="hymns__name">Cristo, Meu Mestre...</span>
-      </a>
-    </li>
+    {#each hymns as hymn}
+      <li class="hymns__item">
+        <a
+          sveltekit:prefetch
+          href={`/hinos/${hymn.file.name}`}
+          class="hymns__link">
+          <b class="hymns__number">{hymn.metadata.number}.</b>
+          <span class="hymns__name">{hymn.metadata.name}</span>
+        </a>
+      </li>
+    {/each}
   </ul>
 </div>
 

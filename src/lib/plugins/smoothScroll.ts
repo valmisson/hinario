@@ -10,6 +10,12 @@ export function smoothScroll (
   }
 
   SmoothScrollbar.init(node)
+
+  return {
+    destroy () {
+      SmoothScrollbar.destroyAll()
+    }
+  }
 }
 
 class HorizontalScrollPlugin extends SmoothScrollbar.ScrollbarPlugin {

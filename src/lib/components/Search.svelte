@@ -102,10 +102,8 @@
   }
 
   .search__input:focus {
-    outline: none;
-
     @apply
-      border-gray-600;
+      border-gray-600 outline-none;
   }
 
   .search__input::placeholder {

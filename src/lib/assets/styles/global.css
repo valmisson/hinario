@@ -4,5 +4,6 @@
 
 /* base */
 
+@import url(./base/reset.css);
 @import url(./base/default.css);
 @import url(./base/scrollbar.css);

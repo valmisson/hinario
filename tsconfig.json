@@ -21,6 +21,8 @@
     ],
 		"paths": {
       "$lib/*": ["src/lib/*"],
+      "$types/*": ["src/types/*"],
+      "$shared/*": ["src/lib/shared/*"],
       "$plugins": ["src/lib/plugins"],
       "$components": ["src/lib/components"]
     }
