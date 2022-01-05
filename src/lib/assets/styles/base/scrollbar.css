@@ -1,15 +1,27 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-track,
 .scrollbar-track-x {
   background-color: #eeeeee !important;
 }
 
+::-webkit-scrollbar-thumb,
 .scrollbar-thumb-x {
   background-color: #999999 !important;
 }
 
+.dark ::-webkit-scrollbar-track,
 .dark .scrollbar-track-x {
   background-color: #3b3b3b !important;
 }
 
+.dark ::-webkit-scrollbar-thumb,
 .dark .scrollbar-thumb-x {
   background-color: #a3a3a3 !important;
 }
