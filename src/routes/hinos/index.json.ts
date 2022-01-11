@@ -16,6 +16,11 @@ export async function get () {
     }
   }))
 
+  // asc order
+  hymns.sort((a, b) => {
+    return a.metadata.number - b.metadata.number
+  })
+
   return {
     body: {
       hymns
