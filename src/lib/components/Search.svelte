@@ -1,10 +1,17 @@
 <script lang="ts">
   import { fade } from 'svelte/transition'
+  import { page } from '$app/stores'
   import { clickOutside } from '$plugins'
+  import type { Hymn, Hymns } from '$types/hymns'
 
   let isInputVisible = false
   let inputElement: HTMLElement
   let inputValue: string
+  let hymnsFound: Hymns = []
+
+  $: if (inputValue) search()
+  $: if (!inputValue) hymnsFound = []
+  $: if ($page) removeInputVisible()
 
   function setInputVisible () {
     isInputVisible = true
@@ -14,14 +21,36 @@
 
   function removeInputVisible () {
     isInputVisible = false
+
+    resetSearch()
   }
 
   function inputAutoFocus () {
     inputElement.focus()
   }
 
-  async function onPressEnter (e: KeyboardEvent) {
-    if (e.key === 'Enter') search()
+  function resetSearch () {
+    inputValue = ''
+    hymnsFound = []
+  }
+
+  async function fetchHymns (input: string) {
+    const res = await fetch('/hinos.json')
+
+    if (res.ok) {
+      const { hymns } = await res.json()
+
+      const hymnsFound = hymns.filter((hymn: Hymn) => {
+        const { metadata: { number } } = hymn
+        const hymnNumber = number.toString()
+
+        return hymnNumber.startsWith(input)
+      })
+
+      return hymnsFound
+    }
+
+    return []
   }
 
   async function search () {
@@ -32,12 +61,12 @@
       return
     }
 
+    // should have only number on input
+    inputValue = inputValue.replace(/[a-z]/gi, '')
+
     if (!inputValue) return
 
-    console.log('Buscando hino', inputValue)
-
-    removeInputVisible()
-    inputValue = ''
+    hymnsFound = await fetchHymns(inputValue)
   }
 </script>
 
@@ -48,16 +77,42 @@
 >
   {#if isInputVisible}
     <input
-      on:keypress={onPressEnter}
       bind:value={inputValue}
       bind:this={inputElement}
       in:fade={{ duration: 200 }}
-      type="number"
-      min="1" max="479"
+      type="search"
       placeholder="Buscar Hinos"
       aria-label="Digite numero do Hino"
       class="search__input"
     >
+
+    {#if hymnsFound.length}
+      <ul
+        in:fade={{ duration: 200 }}
+        class="search__hymns"
+      >
+        {#each hymnsFound as hymn}
+          <li class="hymns__item">
+            <a
+              href={`/hinos/${hymn.file.name}`}
+              class="hymns__link"
+            >
+              {hymn.metadata.number}.
+              {hymn.metadata.name}
+            </a>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+
+    {#if inputValue && !hymnsFound.length}
+      <span
+        in:fade={{ duration: 200, delay: 300 }}
+        class="search__empty"
+        >
+          Nenhum hino encontrado!
+        </span>
+    {/if}
   {/if}
 
   <button
@@ -123,6 +178,53 @@
 
   .input--visible .search__icon path {
     @apply
-      dark:fill-gray-800;
+      dark:fill-gray-300;
+  }
+
+  .search__hymns,
+  .search__empty {
+    @apply
+      w-auto
+      absolute top-8 right-0
+      shadow-md rounded-md z-10
+      bg-gray-100 text-gray-600;
+  }
+
+  .hymns__item {
+    @apply
+      list-none;
+  }
+
+  .hymns__link {
+    @apply
+      p-2
+      block no-underline transition-all rounded-md
+      text-gray-600
+    hover:bg-gray-200 hover:transition-all hover:underline
+    active:underline-gray-600;
+  }
+
+  .search__empty {
+    @apply
+      p-2 top-12
+      text-center;
+  }
+
+  .search .search__input {
+    @apply
+      dark:bg-dark-200 dark:border-gray-500 dark:text-white;
+  }
+
+  .search .search__hymns,
+  .search .search__empty {
+    @apply
+      dark:bg-dark-200 dark:text-gray-100;
+  }
+
+  .search .hymns__link {
+    @apply
+    dark:text-gray-100
+    dark:hover:bg-dark-300 dark:hover:underline-gray-100
+    dark:active:underline-gray-100;
   }
 </style>
