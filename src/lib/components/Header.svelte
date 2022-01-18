@@ -16,7 +16,7 @@
   .header {
     @apply
       container lg:w-screen-lg relative
-      px-4 lg:px-0 mt-6 mx-auto
+      px-4 lg:px-0 mt-4 md:mt-6 mx-auto
       flex justify-between md:justify-center items-center;
   }
 
