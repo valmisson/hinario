@@ -16,10 +16,7 @@ const config = {
   ],
 
   kit: {
-    // hydrate the <div id="h-app"> element in src/app.html
-    target: '#h-app',
     adapter: adapter(),
-    ssr: true,
 
     vite () {
       return {

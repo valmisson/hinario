@@ -2,8 +2,8 @@
   import type { LoadInput } from '@sveltejs/kit'
   import type { HymnFile, HymnMetadata } from '$types/hymns'
 
-  export async function load ({ fetch, page }: LoadInput) {
-    const hymnPath = page.params.hymn
+  export async function load ({ fetch, params }: LoadInput) {
+    const hymnPath = params.hymn
 
     const res = await fetch(`/hinos/${hymnPath}.json`)
 

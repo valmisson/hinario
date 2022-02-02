@@ -3,10 +3,10 @@
   import { Header, PageTransition } from '$components'
   import type { LoadInput } from '@sveltejs/kit'
 
-  export function load ({ page }: LoadInput) {
+  export function load ({ url }: LoadInput) {
     return {
       props: {
-        key: page.path
+        key: url.pathname
       }
     }
   }
