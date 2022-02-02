@@ -6,7 +6,7 @@
   export let hymns: Hymns = []
 </script>
 
-<div use:smoothScroll={{ horizontalScroll: true }}>
+<section use:smoothScroll={{ horizontalScroll: true }}>
   <ul class="hymns">
     {#each hymns as hymn}
       <li class="hymns__item">
@@ -20,7 +20,7 @@
       </li>
     {/each}
   </ul>
-</div>
+</section>
 
 <style scoped>
   .hymns {

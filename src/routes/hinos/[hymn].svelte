@@ -33,7 +33,7 @@
   </title>
 </svelte:head>
 
-<main>
+<div class="container">
   <nav>
     <ul class="breadcrumb">
       <li class="breadcrumb__item">
@@ -57,10 +57,10 @@
       {@html file.html}
     </article>
   </section>
-</main>
+</div>
 
 <style>
-  main {
+  .container {
     @apply
       px-4 mt-8 md:mt-16 mx-auto
       md:w-screen-sm;
@@ -138,7 +138,7 @@
       mt-2 mb-0;
   }
 
-  main .hymn {
+  .container .hymn {
     @apply
       dark:text-gray-100;
   }

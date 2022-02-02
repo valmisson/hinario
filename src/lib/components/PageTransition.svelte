@@ -5,7 +5,7 @@
 </script>
 
 {#key refresh}
-  <div in:fade>
+  <main in:fade>
     <slot />
-  </div>
+  </main>
 {/key}

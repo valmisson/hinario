@@ -26,6 +26,4 @@
   <title>Hinário - Uma coleção de canções Cristã</title>
 </svelte:head>
 
-<main>
-  <HymnsList {hymns} />
-</main>
+<HymnsList {hymns} />
