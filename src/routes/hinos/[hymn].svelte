@@ -17,6 +17,11 @@
         }
       }
     }
+
+    return {
+      status: 404,
+      error: new Error(`Not found: /${hymnPath}`)
+    }
   }
 </script>
 
