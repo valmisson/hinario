@@ -14,8 +14,8 @@
           sveltekit:prefetch
           href={`/hinos/${hymn.file.name}`}
           class="hymns__link">
-          <b class="hymns__number">{hymn.metadata.number}.</b>
-          <span class="hymns__name">{hymn.metadata.name}</span>
+          <b class="hymns__number">{hymn.metadata.numero}.</b>
+          <span class="hymns__name">{hymn.metadata.titulo}</span>
         </a>
       </li>
     {/each}

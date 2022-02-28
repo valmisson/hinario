@@ -32,8 +32,8 @@
 
 <svelte:head>
   <title>
-    {metadata.number}.
-    {metadata.name}
+    {metadata.numero}.
+    {metadata.titulo}
     - Hinário - Uma coleção de canções Cristã
   </title>
 </svelte:head>
@@ -45,17 +45,17 @@
         <a href="/" class="breadcrumb__link">Hinos</a>
       </li>
       <li class="breadcrumb__item breadcrumb--active" aria-current="page">
-        {metadata.number}.
-        {metadata.name}
+        {metadata.numero}.
+        {metadata.titulo}
       </li>
     </ul>
   </nav>
 
   <section class="hymn">
     <h1 class="hymn__name">
-      <span class="hymn__number">{metadata.number}.</span>
+      <span class="hymn__number">{metadata.numero}.</span>
 
-      {metadata.name}
+      {metadata.titulo}
     </h1>
 
     <article class="hymn__lyrics">

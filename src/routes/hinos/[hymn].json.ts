@@ -1,7 +1,7 @@
 import { process } from '$shared/markdown'
-import type { Request } from '@sveltejs/kit'
+import type { LoadInput } from '@sveltejs/kit'
 
-export async function get ({ params }: Request) {
+export async function get ({ params }: LoadInput) {
   const { hymn } = params
   const { file, metadata } = await process(`src/content/hinos/${hymn}.md`)
 

@@ -41,8 +41,8 @@
       const { hymns } = await res.json()
 
       const hymnsFound = hymns.filter((hymn: Hymn) => {
-        const { metadata: { number } } = hymn
-        const hymnNumber = number.toString()
+        const { metadata: { numero } } = hymn
+        const hymnNumber = numero.toString()
 
         return hymnNumber.startsWith(input)
       })
@@ -97,8 +97,8 @@
               href={`/hinos/${hymn.file.name}`}
               class="hymns__link"
             >
-              {hymn.metadata.number}.
-              {hymn.metadata.name}
+              {hymn.metadata.numero}.
+              {hymn.metadata.titulo}
             </a>
           </li>
         {/each}

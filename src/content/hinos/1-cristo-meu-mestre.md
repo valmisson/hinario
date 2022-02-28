@@ -1,6 +1,6 @@
 ---
-number: 1
-name: Cristo, Meu Mestre...
+numero: 1
+titulo: Cristo, Meu Mestre...
 ---
 
 1. Cristo, meu Mestre e meu Senhor

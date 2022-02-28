@@ -1,6 +1,6 @@
 interface HymnMetadata {
-  number: number
-  name: string
+  numero: number
+  titulo: string
 }
 
 interface HymnFile {
