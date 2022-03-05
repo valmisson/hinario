@@ -73,7 +73,7 @@
 
   .breadcrumb {
     @apply
-      flex items-center;
+      flex;
   }
 
   .breadcrumb__item {
