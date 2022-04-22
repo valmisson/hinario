@@ -1,6 +1,8 @@
-# Hinário
+# Hinário CCB
 
-Uma coleção de canções Cristã
+Hinos de Louvores e Súplicas a Deus
+
+Livro N° 5
 
 ## License
 [MIT](LICENSE)

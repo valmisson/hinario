@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-  <title>Hinário - Uma coleção de canções Cristã</title>
+  <title>Hinário CCB - Hinos de Louvores e Súplicas a Deus - Livro N° 5</title>
 </svelte:head>
 
 <HymnsList {hymns} />
