@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type { ErrorLoadInput } from '@sveltejs/kit'
+  import { title } from '$store'
+  import type { LoadInput } from '@sveltejs/kit'
 
-  export function load ({ error, status }: ErrorLoadInput) {
+  export function load ({ error, status }: LoadInput) {
     return {
       props: {
         status,
@@ -18,8 +19,7 @@
 
 <svelte:head>
   <title>
-    {message}
-    - Hinário - Uma coleção de canções Cristã
+    {message} - { $title }
   </title>
 </svelte:head>
 

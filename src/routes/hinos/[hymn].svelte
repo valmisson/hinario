@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+  import { title } from '$store'
   import type { LoadInput } from '@sveltejs/kit'
   import type { HymnFile, HymnMetadata } from '$types/hymns'
 
@@ -32,9 +33,7 @@
 
 <svelte:head>
   <title>
-    {metadata.numero}.
-    {metadata.titulo}
-    - Hinário - Uma coleção de canções Cristã
+    {metadata.numero}. {metadata.titulo} - { $title }
   </title>
 </svelte:head>
 

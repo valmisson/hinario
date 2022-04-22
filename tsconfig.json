@@ -25,6 +25,7 @@
       "$lib/*": ["src/lib/*"],
       "$types/*": ["src/types/*"],
       "$shared/*": ["src/lib/shared/*"],
+      "$store": ["src/lib/store.ts"],
       "$plugins": ["src/lib/plugins"],
       "$components": ["src/lib/components"]
     }

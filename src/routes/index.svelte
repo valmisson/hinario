@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+  import { title } from '$store'
   import { HymnsList } from '$components'
   import type { LoadInput } from '@sveltejs/kit'
   import type { Hymns } from '$types/hymns'
@@ -23,7 +24,7 @@
 </script>
 
 <svelte:head>
-  <title>Hinário CCB - Hinos de Louvores e Súplicas a Deus - Livro N° 5</title>
+  <title>{ $title }</title>
 </svelte:head>
 
 <HymnsList {hymns} />
