@@ -77,7 +77,8 @@
 
   .breadcrumb__item {
     @apply
-      list-none;
+      list-none
+      text-size-16px md:text-size-18px;
   }
 
   .breadcrumb__link {
@@ -117,7 +118,7 @@
   .hymn__name {
     @apply
       mb-6
-      text-size-20px md:text-size-24px font-bold;
+      text-size-22px md:text-size-26px font-bold;
   }
 
   .hymn__number {
@@ -128,8 +129,8 @@
   .hymn__lyrics {
     @apply
       ml-5 md:ml-6 mb-6
-      text-size-16px md:text-size-18px
-      leading-6 md:leading-7 tracking-wide;
+      text-size-18px md:text-size-20px
+      leading-7 md:leading-8 tracking-wide;
   }
 
   :global(.hymn__lyrics ol) {
