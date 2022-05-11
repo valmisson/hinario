@@ -13,7 +13,7 @@ titulo: Consagrados sejamos a Deus
   Abrirá Sua mão e, com grande amor,
   Boas dádivas nos mandará.__
 
-2,Se quisermos, irmãos, ser benditos de Deus,
+2. Se quisermos, irmãos, ser benditos de Deus,
   Adoremo-Lo com devoção;
   Seus preceitos de amor Ele envia dos céus;
   Seja Ele a nossa porção.
