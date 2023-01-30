@@ -11,7 +11,7 @@
     {#each hymns as hymn}
       <li class="hymns__item">
         <a
-          sveltekit:prefetch
+          data-sveltekit-preload-data
           href={`/hinos/${hymn.file.name}`}
           class="hymns__link">
           <b class="hymns__number">{hymn.metadata.numero}.</b>

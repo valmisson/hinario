@@ -1,39 +1,13 @@
-<script lang="ts" context="module">
-  import { title } from '$store'
-  import type { LoadInput } from '@sveltejs/kit'
-  import type { HymnFile, HymnMetadata } from '$types/hymns'
-
-  export async function load ({ fetch, params }: LoadInput) {
-    const hymnPath = params.hymn
-
-    const res = await fetch(`/hinos/${hymnPath}.json`)
-
-    if (res.ok) {
-      const { file, metadata } = await res.json()
-
-      return {
-        props: {
-          metadata,
-          file
-        }
-      }
-    }
-
-    return {
-      status: 404,
-      error: new Error(`Not found: /${hymnPath}`)
-    }
-  }
-</script>
-
 <script lang="ts">
-  export let metadata: HymnMetadata
-  export let file: HymnFile
+  import { title } from '$store'
+  import type { Hymn } from '$types/hymns'
+
+  export let data: Hymn
 </script>
 
 <svelte:head>
   <title>
-    {metadata.numero}. {metadata.titulo} - { $title }
+    {data.metadata.numero}. {data.metadata.titulo} - { $title }
   </title>
 </svelte:head>
 
@@ -44,21 +18,21 @@
         <a href="/" class="breadcrumb__link">Hinos</a>
       </li>
       <li class="breadcrumb__item breadcrumb--active" aria-current="page">
-        {metadata.numero}.
-        {metadata.titulo}
+        {data.metadata.numero}.
+        {data.metadata.titulo}
       </li>
     </ul>
   </nav>
 
   <section class="hymn">
     <h1 class="hymn__name">
-      <span class="hymn__number">{metadata.numero}.</span>
+      <span class="hymn__number">{data.metadata.numero}.</span>
 
-      {metadata.titulo}
+      {data.metadata.titulo}
     </h1>
 
     <article class="hymn__lyrics">
-      {@html file.html}
+      {@html data.file.html}
     </article>
   </section>
 </div>

@@ -17,23 +17,14 @@ const config = {
 
   kit: {
     adapter: adapter(),
-    prerender: {
-      default: true
-    },
 
-    vite () {
-      return {
-        resolve: {
-          alias: {
-            $lib: resolve(__dirname, 'src/lib'),
-            $types: resolve(__dirname, 'src/types'),
-            $shared: resolve(__dirname, 'src/lib/shared'),
-            $store: resolve(__dirname, 'src/lib/store.ts'),
-            $plugins: resolve(__dirname, 'src/lib/plugins'),
-            $components: resolve(__dirname, 'src/lib/components')
-          }
-        }
-      }
+    alias: {
+      $lib: resolve(__dirname, 'src/lib'),
+      $types: resolve(__dirname, 'src/types'),
+      $shared: resolve(__dirname, 'src/lib/shared'),
+      $store: resolve(__dirname, 'src/lib/store.ts'),
+      $plugins: resolve(__dirname, 'src/lib/plugins'),
+      $components: resolve(__dirname, 'src/lib/components')
     }
   }
 }

@@ -5,7 +5,7 @@
 <header class="header">
   <Brand />
 
-  <div role="option" class="header__options">
+  <div role="option" aria-selected class="header__options">
     <Search />
 
     <DarkMode />

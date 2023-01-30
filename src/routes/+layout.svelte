@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
   import '$lib/assets/styles/global.css'
   import { Header, PageTransition } from '$components'
-  import type { LoadInput } from '@sveltejs/kit'
+  import type { LoadEvent } from '@sveltejs/kit'
 
-  export function load ({ url }: LoadInput) {
+  export function load ({ url }: LoadEvent) {
     return {
       props: {
         key: url.pathname
