@@ -1,6 +1,5 @@
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
-import { windi } from 'svelte-windicss-preprocess'
 import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 
@@ -11,8 +10,7 @@ const config = {
   preprocess: [
     preprocess({
       postcss: true
-    }),
-    windi()
+    })
   ],
 
   kit: {
