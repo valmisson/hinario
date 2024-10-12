@@ -128,7 +128,7 @@
   </button>
 </div>
 
-<style>
+<style lang="postcss">
   .search {
     @apply
       flex items-center relative;

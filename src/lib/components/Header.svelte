@@ -5,14 +5,14 @@
 <header class="header">
   <Brand />
 
-  <div role="option" class="header__options">
+  <div role="option" aria-selected class="header__options">
     <Search />
 
     <DarkMode />
   </div>
 </header>
 
-<style scoped>
+<style lang="postcss">
   .header {
     @apply
       container lg:w-screen-lg relative

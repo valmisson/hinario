@@ -61,7 +61,7 @@
   {/if}
 </button>
 
-<style>
+<style lang="postcss">
   .dark-mode__btn {
     @apply
       p-1

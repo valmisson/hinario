@@ -1,39 +1,28 @@
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
-import { windi } from 'svelte-windicss-preprocess'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import adapter from '@sveltejs/adapter-static'
-import preprocess from 'svelte-preprocess'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: [
-    preprocess({
+    vitePreprocess({
       postcss: true
-    }),
-    windi()
+    })
   ],
 
   kit: {
     adapter: adapter(),
-    prerender: {
-      default: true
-    },
 
-    vite () {
-      return {
-        resolve: {
-          alias: {
-            $lib: resolve(__dirname, 'src/lib'),
-            $types: resolve(__dirname, 'src/types'),
-            $shared: resolve(__dirname, 'src/lib/shared'),
-            $store: resolve(__dirname, 'src/lib/store.ts'),
-            $plugins: resolve(__dirname, 'src/lib/plugins'),
-            $components: resolve(__dirname, 'src/lib/components')
-          }
-        }
-      }
+    alias: {
+      $lib: resolve(__dirname, 'src/lib'),
+      $types: resolve(__dirname, 'src/types'),
+      $shared: resolve(__dirname, 'src/lib/shared'),
+      $store: resolve(__dirname, 'src/lib/store.ts'),
+      $plugins: resolve(__dirname, 'src/lib/plugins'),
+      $components: resolve(__dirname, 'src/lib/components')
     }
   }
 }

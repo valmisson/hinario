@@ -11,7 +11,7 @@
     {#each hymns as hymn}
       <li class="hymns__item">
         <a
-          sveltekit:prefetch
+          data-sveltekit-preload-data
           href={`/hinos/${hymn.file.name}`}
           class="hymns__link">
           <b class="hymns__number">{hymn.metadata.numero}.</b>
@@ -22,7 +22,7 @@
   </ul>
 </section>
 
-<style scoped>
+<style lang="postcss">
   .hymns {
     height: calc(100vh - 120px);
 
