@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test'
+import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   webServer: {
@@ -6,5 +6,18 @@ export default defineConfig({
     port: 4173
   },
 
-  testDir: 'test/e2e'
+  testDir: 'test/e2e',
+
+  projects: [
+    {
+      name: 'Desktop',
+      grepInvert: /Mobile$/i,
+      use: { ...devices['Desktop Chrome'] }
+    },
+    {
+      name: 'Mobile',
+      grep: /Mobile$/i,
+      use: { ...devices['Pixel 7'] }
+    }
+  ]
 })

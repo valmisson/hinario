@@ -1,2 +1,44 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .btn {
+    @apply
+      bg-transparent
+      border-none
+      p-1;
+
+    &.outline {
+      @apply
+        border
+        border-neutral-400
+        border-solid
+        px-6
+        py-2
+        rounded-md;
+    }
+  }
+
+  .icon {
+    @apply
+      w-5;
+  }
+}
+
+
+::-webkit-scrollbar {
+  @apply
+    w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply
+    bg-neutral-200 dark:bg-neutral-600;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply
+    bg-neutral-400 dark:bg-neutral-800
+    rounded-md;
+}
