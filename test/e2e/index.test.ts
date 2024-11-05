@@ -12,11 +12,11 @@ test.describe('Home', () => {
   })
 
   test('should have header', async ({ page }) => {
-    await expect(await page.locator('header')).toBeVisible()
+    await expect(page.locator('header')).toBeVisible()
   })
 
   test('should have brand', async ({ page }) => {
-    await expect(await page.locator('figure.brand')).toBeVisible()
+    await expect(page.locator('figure.brand')).toBeVisible()
   })
 
   test('should goto home when click on brand', async ({ page }) => {
@@ -26,23 +26,23 @@ test.describe('Home', () => {
   })
 
   test('should have search box', async ({ page }) => {
-    await expect(await page.locator('.search-box')).toBeVisible()
+    await expect(page.locator('.search-box')).toBeVisible()
   })
 
   test('should hidden input from search box in mobile', async ({ page }) => {
-    await expect(await page.locator('.search-box input')).toBeHidden()
+    await expect(page.locator('.search-box input')).toBeHidden()
   })
 
   test('should show input from search box when click on button icon in mobile', async ({ page }) => {
     await page.locator('.search-box button').click()
 
-    await expect(await page.locator('.search-box input')).toBeVisible()
+    await expect(page.locator('.search-box input')).toBeVisible()
   })
 
   test('should show hymns list when search for a hymn', async ({ page }) => {
     await page.locator('.search-box input').fill('1')
 
-    await expect(await page.locator('.search-box ul')).toBeVisible()
+    await expect(page.locator('.search-box ul')).toBeVisible()
   })
 
   test.skip('should goto hymn page when clicking on a hymn in search box list', async ({ page }) => {
@@ -69,5 +69,21 @@ test.describe('Home', () => {
     await page.locator('.font-jump-btn').click()
 
     await expect(page.locator('.font-jump')).toBeVisible()
+  })
+
+  test('should have hymns list', async ({ page }) => {
+    await expect(page.locator('.hymns')).toBeVisible()
+  })
+
+  test('should have 480 hymn in list', async ({ page }) => {
+    await expect(await page.locator('.hymns ul li').count()).toBe(480)
+  })
+
+  test.skip('should goto page of the hymn when clicking the hymn name', async ({ page }) => {
+    const hymn = await page.locator('.hymns ul li').first()
+
+    await hymn.click()
+
+    await expect(page.title()).toContain(hymn.textContent())
   })
 })

@@ -1,32 +1,44 @@
 <script lang="ts">
   import { tick } from 'svelte'
   import { fly } from 'svelte/transition'
+  import { hymnsList } from '$lib/stores'
+  import type { Hymn } from '~/types'
 
   let searchTerm: string = $state('')
   let searchStarted: boolean = $state(false)
+  let searchBoxElement: HTMLElement | undefined = $state()
   let inputRef: HTMLInputElement | undefined = $state()
   let inputVisible: boolean = $state(false)
   let inputFocused: boolean = $state(false)
   let loading: boolean = $state(false)
-  let hymnsFound: string[] = $state([])
+  let hymnsFound: Hymn[] = $state([])
 
   const onSearchHymns = async (): Promise<void> => {
     try {
       loading = true
       searchStarted = !!searchTerm
 
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      const hymns = $hymnsList.filter(({ metadata }) => (
+        String(metadata.number).startsWith(searchTerm)
+      ))
 
-      hymnsFound = searchStarted ? Array(15) : []
+      hymnsFound = searchStarted ? hymns : []
     } finally {
       loading = false
     }
   }
 
-  const toggleFocus = (): void => {
-    inputFocused = !inputFocused
+  const onInputFocus = (): void => {
+    inputFocused = true
 
     if (!inputFocused) inputVisible = false
+  }
+
+  const onClickOutside = (element: MouseEvent): void => {
+    if (!searchBoxElement?.contains(element.target as HTMLElement)) {
+      inputFocused = false
+      inputVisible = false
+    }
   }
 
   const onButtonClick = async (): Promise<void> => {
@@ -38,13 +50,16 @@
     inputRef?.focus()
   }
 </script>
+
+<svelte:window onclick={onClickOutside} />
+
 <div
+  bind:this={searchBoxElement}
   class="search-box relative flex items-center w-36 md:w-40"
 >
   <input
     oninput={onSearchHymns}
-    onfocus={toggleFocus}
-    onblur={toggleFocus}
+    onfocus={onInputFocus}
     bind:value={searchTerm}
     bind:this={inputRef}
     transition:fly
@@ -74,7 +89,7 @@
   {#if searchStarted && inputFocused}
     <ul
       transition:fly
-      class="absolute bg-neutral-100 border dark:bg-neutral-700 dark:border-neutral-500 max-h-96 leading-tight overflow-y-auto text-lg top-12 rounded-md scrollbar-thin scrollbar-thumb scrollbar-track w-full z-50"
+      class="absolute bg-neutral-100 border dark:bg-neutral-700 dark:border-neutral-500 max-h-96 leading-tight overflow-y-auto text-lg top-12 rounded-md w-full z-50"
     >
       {#if loading}
         <li class="animate-pulse dark:text-gray-100 px-3 py-2 text-gray-500">
@@ -85,10 +100,10 @@
           Nenhum hino encontrado.
         </li>
       {:else}
-        {#each hymnsFound as _, key} <!-- eslint-disable-line -->
+        {#each hymnsFound as { file, metadata }}
           <li class="duration-300 border-y border-neutral-200 dark:border-neutral-900 dark:hover:bg-neutral-600 hover:bg-neutral-300 pl-3 pr-2 py-2 jump:text-lg truncate transition-colors">
-            <a href="/" class="py-2">
-              <b class="font-medium dark:text-gray-100 text-gray-600">{key + 1}</b>. Deve ser o titulo do hino
+            <a href={`/hino/${file.name}`} title={metadata.title} class="hover:underline py-2">
+              <b class="font-medium dark:text-gray-100 text-gray-600">{metadata.number}</b>. {metadata.title}
             </a>
           </li>
         {/each}
@@ -99,10 +114,10 @@
 
 <style lang="postcss">
   input {
-    @apply max-md:invisible;
+    @apply max-md:hidden;
 
     &.focused {
-      @apply max-md:visible;
+      @apply max-md:block;
     }
   }
 </style>
