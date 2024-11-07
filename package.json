@@ -28,6 +28,7 @@
 		"globals": "^15.11.0",
 		"lint-staged": "^15.2.10",
 		"mdsvex": "^0.11.2",
+		"remark-breaks": "^4.0.0",
 		"smooth-scrollbar": "^8.8.4",
 		"svelte": "^5.1.4",
 		"svelte-check": "^4.0.5",

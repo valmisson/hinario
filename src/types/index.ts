@@ -9,6 +9,13 @@ export interface Hymn {
   }
 }
 
+export interface HymnsProps {
+  hymns: Hymn[];
+}
+
 export interface HymnProps {
-  hymns: Hymn[]
+  hymn: {
+    title: string;
+    html: string;
+  }
 }

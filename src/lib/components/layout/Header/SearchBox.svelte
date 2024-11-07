@@ -1,6 +1,7 @@
 <script lang="ts">
   import { tick } from 'svelte'
   import { fly } from 'svelte/transition'
+  import { navigating } from '$app/stores'
   import { hymnsList } from '$lib/stores'
   import type { Hymn } from '~/types'
 
@@ -49,6 +50,17 @@
     await tick()
     inputRef?.focus()
   }
+
+  const onRemoveSearch = (): void => {
+    inputFocused = false
+    searchTerm = ''
+    hymnsFound.length = 0
+    searchStarted = false
+  }
+
+  $effect(() => {
+    if ($navigating) onRemoveSearch()
+  })
 </script>
 
 <svelte:window onclick={onClickOutside} />

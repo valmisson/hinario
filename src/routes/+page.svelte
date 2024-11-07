@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { appTitle, hymnsList } from '$lib/stores'
+  import { appTitle } from '$lib/stores'
   import PageHymns from '$lib/components/pages/hymns/index.svelte'
+
+  const { data } = $props()
 </script>
 
 <svelte:head>
@@ -8,5 +10,5 @@
 </svelte:head>
 
 <main>
-  <PageHymns hymns={$hymnsList} />
+  <PageHymns hymns={data.hymns} />
 </main>

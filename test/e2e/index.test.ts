@@ -6,9 +6,7 @@ test.describe('Home', () => {
   })
 
   test('should load title', async ({ page }) => {
-    await expect(page).toHaveTitle(
-      'Hinário CCB - Hinos de Louvores e Súplicas a Deus - Livro N° 5'
-    )
+    await expect(await page.title()).toMatchSnapshot()
   })
 
   test('should have header', async ({ page }) => {
@@ -45,11 +43,11 @@ test.describe('Home', () => {
     await expect(page.locator('.search-box ul')).toBeVisible()
   })
 
-  test.skip('should goto hymn page when clicking on a hymn in search box list', async ({ page }) => {
+  test('should goto hymn page when clicking on a hymn in search box list', async ({ page }) => {
     await page.locator('.search-box input').fill('1')
     await page.locator('.search-box ul li').first().click()
 
-    await expect(page).toHaveURL('/hinos/1-cristo-meu-mestre')
+    await expect(page).toHaveURL('/hino/1-cristo-meu-mestre')
   })
 
   test('should have dark mode button', async ({ page }) => {
@@ -79,11 +77,11 @@ test.describe('Home', () => {
     await expect(await page.locator('.hymns ul li').count()).toBe(480)
   })
 
-  test.skip('should goto page of the hymn when clicking the hymn name', async ({ page }) => {
+  test('should goto page of the hymn when clicking the hymn name', async ({ page }) => {
     const hymn = await page.locator('.hymns ul li').first()
 
     await hymn.click()
 
-    await expect(page.title()).toContain(hymn.textContent())
+    await expect(page).toHaveURL('/hino/1-cristo-meu-mestre')
   })
 })

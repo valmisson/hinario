@@ -8,6 +8,8 @@ export default defineConfig({
 
   testDir: 'test/e2e',
 
+  snapshotDir: './test/e2e/snapshots',
+
   projects: [
     {
       name: 'Desktop',

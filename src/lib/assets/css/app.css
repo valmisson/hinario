@@ -42,3 +42,7 @@
     bg-neutral-400 dark:bg-neutral-800
     rounded-md;
 }
+
+ol {
+  list-style: decimal;
+}

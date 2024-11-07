@@ -1,8 +1,8 @@
 <script lang="ts">
   import smoothScroll from '$lib/plugins/smoothScroll'
-  import type { HymnProps } from '~/types'
+  import type { HymnsProps } from '~/types'
 
-  const { hymns }: HymnProps = $props()
+  const { hymns }: HymnsProps = $props()
 </script>
 
 <section
@@ -14,11 +14,11 @@
   >
     {#each hymns as { file, metadata }}
       <li
-        class="hover:bg-gray-100"
+        class="dark:hover:bg-neutral-700 hover:bg-neutral-100 rounded-md"
       >
         <a
           href={`/hino/${file.name}`}
-          class="block hover:underline jump:text-xl px-2 py-2 rounded-md"
+          class="block hover:underline jump:text-xl px-2 py-2"
         >
           <b>{metadata.number}</b>.
           <span>{metadata.title}</span>
