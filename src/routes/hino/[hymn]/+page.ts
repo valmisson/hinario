@@ -17,5 +17,5 @@ export async function load ({ fetch, params }: LoadEvent) {
     }
   }
 
-  return error(404, `${params.hymn} não encontrado!`)
+  return error(404, `/hino/${params.hymn} não encontrado.`)
 }

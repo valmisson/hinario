@@ -19,3 +19,14 @@ export interface HymnProps {
     html: string;
   }
 }
+
+export interface ErrorProps {
+  error: {
+    status: number;
+    message: string | undefined;
+  }
+}
+
+export interface BackButtonProps {
+  to: string;
+}
