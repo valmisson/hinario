@@ -26,4 +26,14 @@ test.describe('Hymn', () => {
   test('should have hymn lyric', async ({ page }) => {
     await expect(await page.locator('.lyrics ol').textContent()).toMatchSnapshot()
   })
+
+  test('should have button back', async ({ page }) => {
+    await expect(page.locator('.back')).toBeVisible()
+  })
+
+  test('should goto page home when clicking in back button', async ({ page }) => {
+    await page.locator('.back').click()
+
+    await expect(page).toHaveURL('/')
+  })
 })
