@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Store > should have the title in appTitle store 1`] = `"Hinário CCB N° 5 - Hinos de Louvores e Súplicas a Deus"`;

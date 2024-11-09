@@ -41,11 +41,10 @@
 	},
 	"lint-staged": {
 		"**/*.{ts,js,svelte}": [
-			"npm run lint -- --fix"
-		],
-    "**/*.{spec,test}.ts": [
-      "npm run test"
-    ]
+			"npm run lint -- --fix",
+      "npm run test:unit -- related --run",
+      "npm run test:e2e -- test/e2e/"
+		]
 	},
 	"gitHooks": {
 		"pre-commit": "lint-staged"

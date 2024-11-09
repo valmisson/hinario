@@ -35,16 +35,22 @@
 
 <button
   onclick={onFontJump}
-  class="font-jump-btn btn"
-  aria-pressed={isFontJump}
+  class="font-jump-btn btn icon duration-300 transition-transform dark:fill-white"
   aria-label="Aumentar ou diminuir tamanho da fonte"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="{isFontJump ? 'scale-110 fill-gray-800' : ''} icon duration-300 transition-transform dark:fill-white"
-    viewBox="0 0 18 20"
-    fill="#33414B"
-  >
-    <path d="M8 20v-6h2v2h8v2h-8v2H8Zm-8-2v-2h6v2H0Zm3.425-6H5.5l1.1-3.075h4.825L12.5 12h2.075l-4.5-12h-2.15l-4.5 12ZM7.2 7.2l1.75-4.975h.1L10.8 7.2H7.2Z" />
-  </svg>
-</button>
+  aria-pressed={isFontJump}
+></button>
+
+<style>
+  button {
+    background-image: url(/icons/font-jump-light.svg);
+
+    :global(.dark) & {
+      background-image: url(/icons/font-jump-dark.svg);
+    }
+
+    :global(.font-jump) & {
+      width: 20px;
+      height: 22px;
+    }
+  }
+</style>

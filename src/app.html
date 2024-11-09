@@ -40,6 +40,14 @@
         "description": "Hinário de numero 5 da congregação cristã do brasil com todos os hinos de louvores e súplicas a deus"
       }
     </script>
+
+    <script>
+      const isDark = localStorage.getItem('dark-mode') === 'true'
+      const isFontJump = localStorage.getItem('font-jump') === 'true'
+
+      isDark && document.documentElement.classList.add('dark')
+      isFontJump && document.documentElement.classList.add('font-jump')
+    </script>
 	</head>
 	<body
     class="bg-white text-lg text-gray-600 dark:bg-neutral-800 dark:text-white"

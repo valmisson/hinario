@@ -22,6 +22,7 @@
 
   .icon {
     @apply
+      h-5
       w-5;
   }
 }
@@ -34,12 +35,12 @@
 
 ::-webkit-scrollbar-track {
   @apply
-    bg-neutral-200 dark:bg-neutral-600;
+    bg-neutral-200 dark:bg-neutral-900;
 }
 
 ::-webkit-scrollbar-thumb {
   @apply
-    bg-neutral-400 dark:bg-neutral-800
+    bg-neutral-400
     rounded-md;
 }
 
