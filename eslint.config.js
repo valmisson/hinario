@@ -1,7 +1,7 @@
-import svelte from 'eslint-plugin-svelte'
 import globals from 'globals'
 import ts from 'typescript-eslint'
-import standard from './config/eslint-standard.js'
+import standard from 'eslint-config-std'
+import svelte from 'eslint-plugin-svelte'
 
 export default ts.config(
   ...standard.configs.recommended,

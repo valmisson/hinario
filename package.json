@@ -24,6 +24,7 @@
 		"cssnano": "^7.0.6",
 		"cssnano-preset-advanced": "^7.0.6",
 		"eslint": "^9.13.0",
+		"eslint-config-std": "^1.0.0",
 		"eslint-plugin-svelte": "^2.46.0",
 		"globals": "^15.11.0",
 		"lint-staged": "^15.2.10",
@@ -42,8 +43,8 @@
 	"lint-staged": {
 		"**/*.{ts,js,svelte}": [
 			"npm run lint -- --fix",
-      "npm run test:unit -- related --run",
-      "npm run test:e2e -- test/e2e/"
+			"npm run test:unit -- related --run",
+			"npm run test:e2e -- test/e2e/"
 		]
 	},
 	"gitHooks": {
