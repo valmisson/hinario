@@ -59,6 +59,14 @@ test.describe('Home', () => {
     await expect(await page.locator('.dark').count()).toEqual(1)
   })
 
+  test('should save dark mode status on localStorage', async ({ page }) => {
+    await page.locator('.dark-mode').click()
+
+    const storage = await page.evaluate(() => window.localStorage)
+
+    expect(storage['dark-mode']).toBe('true')
+  })
+
   test('should have font jump', async ({ page }) => {
     await expect(page.locator('.font-jump-btn')).toBeVisible()
   })
@@ -67,6 +75,14 @@ test.describe('Home', () => {
     await page.locator('.font-jump-btn').click()
 
     await expect(page.locator('.font-jump')).toBeVisible()
+  })
+
+  test('should save font jump status on localStorage', async ({ page }) => {
+    await page.locator('.font-jump-btn').click()
+
+    const storage = await page.evaluate(() => window.localStorage)
+
+    expect(storage['font-jump']).toBe('true')
   })
 
   test('should have hymns list', async ({ page }) => {

@@ -1,3 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Store > should have info of the hymns in hymnsList 1`] = `
+{
+  "file": {
+    "name": "1-cristo-meu-mestre",
+  },
+  "metadata": {
+    "number": 1,
+    "title": "Cristo, Meu Mestre...",
+  },
+}
+`;
+
 exports[`Store > should have the title in appTitle store 1`] = `"Hinário CCB N° 5 - Hinos de Louvores e Súplicas a Deus"`;
