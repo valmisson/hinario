@@ -5,7 +5,7 @@
   const { hymn }: HymnProps = $props()
 </script>
 
-<section class="hymn flex flex-col justify-center my-8 md:mt-14 mx-auto w-full max-md:px-4 md:max-w-xl lg:max-w-screen-sm">
+<section class="hymn flex flex-col justify-center my-8 md:mt-14 mx-auto w-full max-md:px-4 md:max-w-xl">
   <nav class="breadcrumb flex gap-2 items-center jump:text-lg text-base">
     <a
       href="/"

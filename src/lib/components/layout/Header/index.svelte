@@ -6,12 +6,12 @@
 </script>
 
 <header
-  class="container flex items-center justify-between mt-4 mx-auto max-2xl:px-4 relative lg:justify-center"
+  class="container flex items-center justify-between 2xl:justify-center mt-4 mx-auto px-4 sm:px-6 lg:px-16 xl:px-24 2xl:px-0 2xl:relative"
 >
   <BrandImage />
 
   <aside
-    class="flex gap-5 md:gap-8 h-full items-center lg:absolute lg:right-0"
+    class="flex gap-5 md:gap-8 pr-1 sm:pr-2 2xl:pr-0 h-full items-center 2xl:absolute 2xl:right-0"
   >
     <SearchBox />
     <DarkMode />
