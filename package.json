@@ -14,31 +14,31 @@
 		"test:e2e": "playwright test"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.55.0",
-		"@sveltejs/adapter-static": "^3.0.9",
-		"@sveltejs/kit": "^2.37.0",
-		"@sveltejs/vite-plugin-svelte": "^4.0.4",
+		"@playwright/test": "^1.63.0",
+		"@sveltejs/adapter-static": "^3.0.10",
+		"@sveltejs/kit": "^2.70.3",
+		"@sveltejs/vite-plugin-svelte": "^7.3.0",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^22.18.0",
-		"autoprefixer": "^10.4.21",
-		"cssnano": "^7.1.1",
-		"cssnano-preset-advanced": "^7.0.9",
-		"eslint": "^9.34.0",
+		"@types/node": "^22.20.2",
+		"autoprefixer": "^10.5.6",
+		"cssnano": "^7.1.9",
+		"cssnano-preset-advanced": "^7.0.16",
+		"eslint": "^9.39.5",
 		"eslint-config-std": "^1.0.0",
 		"eslint-plugin-svelte": "^2.46.1",
 		"globals": "^15.15.0",
 		"lint-staged": "^15.5.2",
 		"mdsvex": "^0.11.2",
 		"remark-breaks": "^4.0.0",
-		"simple-git-hooks": "^2.13.1",
+		"simple-git-hooks": "^2.14.0",
 		"smooth-scrollbar": "^8.8.4",
-		"svelte": "^5.38.6",
-		"svelte-check": "^4.3.1",
-		"tailwindcss": "^3.4.17",
-		"typescript": "^5.9.2",
-		"typescript-eslint": "^8.42.0",
-		"vite": "^5.4.19",
-		"vitest": "^2.1.9"
+		"svelte": "^5.57.0",
+		"svelte-check": "^4.7.6",
+		"tailwindcss": "^3.4.19",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.70.0",
+		"vite": "^8.3.0",
+		"vitest": "^5.0.0"
 	},
 	"lint-staged": {
 		"**/*.{ts,js,svelte}": [
@@ -49,5 +49,8 @@
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npx lint-staged"
+	},
+	"overrides": {
+		"cookie": "^0.7.0"
 	}
 }
