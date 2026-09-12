@@ -4,7 +4,7 @@
 
   const { data } = $props()
 
-  const hymnTitle = data.hymn.title
+  const hymnTitle = $derived(data.hymn.title)
 </script>
 
 <svelte:head>
